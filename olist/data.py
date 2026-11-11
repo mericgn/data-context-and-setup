@@ -20,7 +20,21 @@ class Olist:
         Its keys should be 'sellers', 'orders', 'order_items' etc...
         Its values should be pandas.DataFrames loaded from csv files
         """
-        pass  # YOUR CODE HERE
+
+        csv_path = Path.home() / ".workintech" / "olist" / "data" / "csv"
+
+        file_names = [f.name for f in csv_path.iterdir() if f.name.endswith(".csv")]
+
+        key_names = [
+            name.replace("olist_", "").replace("_dataset.csv", "").replace(".csv", "")
+            for name in file_names
+        ]
+
+        data = {}
+        for key, file_name in zip(key_names, file_names):
+            data[key] = pd.read_csv(csv_path / file_name)
+
+        return data
 
     def ping(self):
         """
