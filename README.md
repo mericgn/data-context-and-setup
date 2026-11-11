@@ -175,3 +175,8 @@ git push origin master
 ```
 
 Tebrikler! Artık `olist` için tamamen hazırsınız 🚀
+
+## Setup Notes
+- CSV files: ~/.workintech/olist/data/csv
+- PYTHONPATH added to ~/.zshrc
+- Verified: Olist().ping() -> pong
